@@ -4,6 +4,7 @@
       <li data-menuanchor="about"><a href="#about">About Me</a></li>
       <li data-menuanchor="projects"><a href="#projects">Projects</a></li>
       <li data-menuanchor="contact"><a href="#contact">Contact Me</a></li>
+      <li data-menuanchor="vpns"><a href="#vpns">Vpns</a></li>
     </ul>
   </nav>
 </template>

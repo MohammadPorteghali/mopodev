@@ -12,6 +12,7 @@
       <about />
       <projects />
       <contact />
+      <vpns />
     </div>
     <!-- </full-page> -->
   </div>
@@ -22,7 +23,7 @@ import Name from "./Name.vue";
 import Projects from "./Projects.vue";
 import About from "./About.vue";
 import Contact from "./Contact.vue";
-
+import Vpns from "./Vpns.vue";
 export default {
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
       },
     };
   },
-  components: { Name, About, Projects, Contact },
+  components: { Name, About, Projects, Contact, Vpns },
   methods: {
     generateNoise() {
       this.noise = document.createElement("canvas");
