@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #000;
+}
+
+.portrait-canvas {
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .portrait-canvas {
+    height: clamp(260px, 44svh, 420px);
+    mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+  }
+
+  .profile-hero {
+    min-height: 100svh;
+    padding-top: clamp(260px, 44svh, 420px);
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  .profile-intro {
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+    line-height: 1.35 !important;
+    margin-bottom: 16px;
+  }
+
+  .profile-description {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: rgb(255 255 255 / 85%);
+    margin-bottom: 24px;
+  }
+
+  .profile-contact {
+    margin-top: auto;
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  .profile-contact a {
+    flex: 1;
+    height: 44px;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

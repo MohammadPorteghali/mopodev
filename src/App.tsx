@@ -1,0 +1,11 @@
+import HeadScene from './components/HeadScene'
+import Hero from './components/Hero'
+
+export default function App() {
+  return (
+    <>
+      <HeadScene />
+      <Hero />
+    </>
+  )
+}
