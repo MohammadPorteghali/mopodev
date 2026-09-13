@@ -1,0 +1,63 @@
+{
+  "revision": 3,
+  "objects": [
+    {
+      "name": "Shirt_Torso",
+      "vertices": 13763,
+      "faces": 27026
+    },
+    {
+      "name": "Hair_SweptCap",
+      "vertices": 7741,
+      "faces": 15169
+    },
+    {
+      "name": "Ear_Left",
+      "vertices": 1095,
+      "faces": 2032
+    },
+    {
+      "name": "Shirt_Collar",
+      "vertices": 14078,
+      "faces": 27174
+    },
+    {
+      "name": "Head_Face",
+      "vertices": 11116,
+      "faces": 20943
+    },
+    {
+      "name": "Neck_and_Chest",
+      "vertices": 8260,
+      "faces": 15485
+    },
+    {
+      "name": "Eyebrows",
+      "vertices": 336,
+      "faces": 536
+    },
+    {
+      "name": "Eye_Left_Surface",
+      "vertices": 380,
+      "faces": 702
+    },
+    {
+      "name": "Beard_and_Moustache",
+      "vertices": 398,
+      "faces": 594
+    },
+    {
+      "name": "Eye_Right_Surface",
+      "vertices": 386,
+      "faces": 669
+    },
+    {
+      "name": "Ear_Right",
+      "vertices": 1030,
+      "faces": 1876
+    }
+  ],
+  "camera_lens_mm_estimated": 85,
+  "physical_scale": "unspecified",
+  "base_mesh": "public/head.glb"
+}

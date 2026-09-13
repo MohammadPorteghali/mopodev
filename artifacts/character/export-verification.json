@@ -1,0 +1,22 @@
+{
+  "blend": {
+    "mesh_count": 11,
+    "faces": 112206,
+    "missing_images": []
+  },
+  "glb": {
+    "mesh_count": 11,
+    "faces": 112206,
+    "missing_images": []
+  },
+  "fbx": {
+    "mesh_count": 11,
+    "faces": 112206,
+    "missing_images": []
+  },
+  "obj": {
+    "mesh_count": 11,
+    "faces": 112206,
+    "missing_images": []
+  }
+}

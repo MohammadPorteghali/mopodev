@@ -1,0 +1,123 @@
+# Blender 5.2.1 LTS MTL File: 'mohammad-character.blend'
+# www.blender.org
+
+newmtl Beard_and_Moustache_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Ear_Left_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Ear_Right_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Eye_Left_Surface_Material
+Ns 302.500000
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Eye_Right_Surface_Material
+Ns 302.500000
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Eyebrows_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Hair_SweptCap_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Head_Face_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Neck_and_Chest_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Shirt_Collar_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png
+
+newmtl Shirt_Torso_Material
+Ns 67.599998
+Ka 1.000000 1.000000 1.000000
+Ks 0.220000 0.220000 0.220000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Image_0.png
+map_Bump -bm 0.150000 Image_2.png

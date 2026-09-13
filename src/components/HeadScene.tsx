@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
-const MODEL_SRC = '/head.glb'
+const MODEL_SRC = '/mohammad-character.glb'
 // Matches the red vignette of the original video.
-const BACKGROUND = 'radial-gradient(circle at 68% 42%, #cf1f23 0%, #b01b1d 45%, #8a1411 100%)'
+const BACKGROUND = 'radial-gradient(circle at 68% 42%, #a8181c 0%, #8c1517 45%, #6a0f0d 100%)'
 
 // The model has no rig, so the head is turned in the vertex shader. The chin (front) and
 // the back of the collar sit at the same height, so the neck blend runs along a tilted
@@ -115,24 +115,52 @@ export default function HeadScene() {
     scene.add(body)
 
     let disposed = false
-    let mesh: THREE.Mesh | null = null
+    const meshes: THREE.Mesh[] = []
+    const disposeMeshes = (items: THREE.Mesh[]) => {
+      const materials = new Set<THREE.Material>()
+      const textures = new Set<THREE.Texture>()
+      for (const mesh of items) {
+        mesh.geometry.dispose()
+        for (const material of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) {
+          materials.add(material)
+          for (const value of Object.values(material)) {
+            if (value instanceof THREE.Texture) textures.add(value)
+          }
+        }
+        mesh.customDepthMaterial?.dispose()
+      }
+      textures.forEach((texture) => texture.dispose())
+      materials.forEach((material) => material.dispose())
+    }
     new GLTFLoader().load(MODEL_SRC, (gltf) => {
-      if (disposed) return
-      const found = gltf.scene.getObjectByProperty('isMesh', true) as THREE.Mesh | undefined
-      if (!found) return
-      mesh = found
-
-      // Keep the model's own textured material; only add the head rotation to it.
-      const material = mesh.material as THREE.MeshStandardMaterial
-      applyHeadRotation(material, uniforms)
-      const depthMaterial = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking })
-      applyHeadRotation(depthMaterial, uniforms)
-
-      mesh.material = material
-      mesh.customDepthMaterial = depthMaterial
-      mesh.castShadow = true
-      mesh.receiveShadow = true
-      body.add(gltf.scene)
+      const parts: THREE.Mesh[] = []
+      gltf.scene.updateMatrixWorld(true)
+      gltf.scene.traverse((object) => {
+        if (object instanceof THREE.Mesh) parts.push(object)
+      })
+      if (disposed) {
+        disposeMeshes(parts)
+        return
+      }
+      // Bake Blender's axis transforms into every part so the shared deformation
+      // uses the same Y-up coordinates across the face, eyes, hair, and clothing.
+      for (const mesh of parts) {
+        mesh.geometry.applyMatrix4(mesh.matrixWorld)
+        mesh.position.set(0, 0, 0)
+        mesh.quaternion.identity()
+        mesh.scale.set(1, 1, 1)
+        mesh.updateMatrix()
+        for (const material of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) {
+          applyHeadRotation(material, uniforms)
+        }
+        const depthMaterial = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking })
+        applyHeadRotation(depthMaterial, uniforms)
+        mesh.customDepthMaterial = depthMaterial
+        mesh.castShadow = true
+        mesh.receiveShadow = true
+        body.add(mesh)
+        meshes.push(mesh)
+      }
       setLoaded(true)
     })
 
@@ -239,15 +267,7 @@ export default function HeadScene() {
       window.removeEventListener('touchmove', onTouch)
       window.removeEventListener('touchend', onTouchEnd)
       window.removeEventListener('touchcancel', onTouchEnd)
-      if (mesh) {
-        const material = mesh.material as THREE.MeshStandardMaterial
-        material.map?.dispose()
-        material.metalnessMap?.dispose()
-        material.normalMap?.dispose()
-        material.dispose()
-        mesh.geometry.dispose()
-        mesh.customDepthMaterial?.dispose()
-      }
+      disposeMeshes(meshes)
       renderer.dispose()
       renderer.domElement.remove()
     }
